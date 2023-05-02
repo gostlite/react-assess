@@ -14,7 +14,9 @@ export default function Table() {
       updateSelect(allData.slice(1,20))
       
     }
-    fetchData();
+    fetchData().catch(err=> {
+      console.log(err)
+    });
   }, []);
     // const [selected, updateSelect] = useState(allData.slice(1,20))
 
@@ -31,15 +33,16 @@ export default function Table() {
         </tr>
       </thead>
       <tbody>
-        
-          {selected.map(val => {
-            <tr>
-          <td>Data 1</td>
-          <td>Data 2</td>
-          <td>Data 3</td>
-          <td>Data 4</td>
-              </tr>
-          })}
+        {selected.map(val => {
+        return <tr>
+          <td>{val.estDepartureAirport}</td>
+          <td>hello</td>
+          <td>{val.firstSeen }</td>
+          <td>{val.lastSeen }</td>
+          </tr>
+      })}  
+         
+  
       </tbody>
     </table>
   );
