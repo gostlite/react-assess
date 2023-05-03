@@ -27,9 +27,9 @@ export default function Table() {
   }, []);
     // const [selected, updateSelect] = useState(allData.slice(1,20))
 
-//   setTimeout(() => {
-//    console.log(selected);
-//  },10)
+  setTimeout(() => {
+   console.log(selected);
+ },10)
   
   
 
