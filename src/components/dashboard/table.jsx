@@ -4,6 +4,11 @@ import React, { useState, useEffect } from "react";
 export default function Table() {
   const [allData, setData] = useState([]);
   const [selected, updateSelect] = useState([])
+  const convertTime = function(data){
+    return new Date(data*1000).toTimeString()
+  }
+  console.log(convertTime(1517229296))
+  console.log(convertTime(1517230536))
 
   useEffect(() => {
     async function fetchData() {
@@ -22,9 +27,9 @@ export default function Table() {
   }, []);
     // const [selected, updateSelect] = useState(allData.slice(1,20))
 
-  setTimeout(() => {
-   console.log(selected);
- },7)
+//   setTimeout(() => {
+//    console.log(selected);
+//  },10)
   
   
 
@@ -39,12 +44,12 @@ export default function Table() {
         </tr>
       </thead>
       <tbody>
-        {selected.map(val => {
-        return <tr>
+        {selected.map((val,i) => {
+        return <tr key={i}>
           <td>{val.estDepartureAirport}</td>
-          <td>hello</td>
-          <td>{val.firstSeen }</td>
-          <td>{val.lastSeen }</td>
+          <td>{convertTime(val.lastSeen )}</td>
+          <td>{val.estDepartureAirportVertDistance}</td>
+          <td>{val.estArrivalAirportVertDistance}</td>
           </tr>
       })}  
          

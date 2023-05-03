@@ -28,6 +28,7 @@ export default function LoginComponent() {
         event.preventDefault();
         if (username === "admin" && password ===
             "admin") {
+            // navigate the page after a successful login
             return navigate("/dashboard")
         }
   }
