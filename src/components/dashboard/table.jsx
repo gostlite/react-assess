@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-let count;
-
-  const NextSlide = (allData, selected, updateSelect) => {
-    count += 20
-    updateSelect(allData.slice(count, count + 20))
-console.log(selected);
-    return
-  }
 
 export default function Table() {
   const [allData, setData] = useState([]);
   const [selected, updateSelect] = useState([])
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
@@ -20,17 +13,19 @@ export default function Table() {
       if (!response.ok) return;
       const json = await response.json();
       setData(json);
-      updateSelect(allData.slice(1,21))
+      updateSelect(allData.slice(1,100))
       
     }
-    fetchData().catch(err=> {
+    fetchData().catch(err => {
       console.log(err)
     });
   }, []);
     // const [selected, updateSelect] = useState(allData.slice(1,20))
 
- 
-  console.log(selected);
+  setTimeout(() => {
+   console.log(selected);
+ },7)
+  
   
 
   return (
@@ -53,11 +48,6 @@ export default function Table() {
           </tr>
       })}  
          
-        <tr>
-          <td colSpan={1}><button >Prev</button></td>
-          
-          <td colSpan={1}><button>Next</button></td>
-      </tr>
       </tbody>
     </table>
   );
