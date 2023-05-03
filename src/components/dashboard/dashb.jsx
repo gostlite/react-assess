@@ -15,7 +15,7 @@ export default function Dashboard() {
   </div>
   <div className="main-content">
     <h2>Overview</h2>
-            <p>Welcome to your dashboard! Here you can view your reports and change your settings.</p>
+            <p>Welcome to your dashboard! Here you can view flights.</p>
             <Table />
         </div>
     </div>
