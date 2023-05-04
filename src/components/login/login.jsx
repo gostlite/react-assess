@@ -15,16 +15,13 @@ export default function LoginComponent() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate()
-
-
- function handleChange(event) {
+    const handleChange = (event)=>{
      const ele = event.target
      if(ele.name === "username") setUsername(event.target.value);
      if(ele.name === "password") setPassword(event.target.value);
     
   }
-
-    function handleSubmit(event) {
+    const handleSubmit = (event) =>{
         event.preventDefault();
         if (username === "admin" && password ===
             "admin") {
@@ -33,7 +30,6 @@ export default function LoginComponent() {
         }
   }
     return <div className="login-container">
-        <h1>{ username }</h1>
   <form onSubmit={handleSubmit}>
             <h2>Login</h2>
             <Input name="username" func={ handleChange} />
