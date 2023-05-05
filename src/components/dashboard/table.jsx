@@ -3,13 +3,11 @@ import React, { useState, useEffect } from "react";
 
 export default function Table() {
   const [allData, setData] = useState([]);
-  const [selected, updateSelect] = useState([])
+  // const [selected, updateSelect] = useState([])
   const convertTime = function(data){
     return new Date(data*1000).toTimeString()
   }
-  console.log(convertTime(1517229296))
-  console.log(convertTime(1517230536))
-
+  
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
@@ -17,20 +15,14 @@ export default function Table() {
       );
       if (!response.ok) return;
       const json = await response.json();
-      setData(json);
-      updateSelect(allData.slice(1,100))
+      setData(await json.slice(1,100));
+      // updateSelect(allData.slice(1,100))
       
     }
     fetchData().catch(err => {
       console.log(err)
     });
   }, []);
-    // const [selected, updateSelect] = useState(allData.slice(1,20))
-
-  setTimeout(() => {
-   console.log(selected);
- },10)
-  
   
 
   return (
@@ -44,7 +36,7 @@ export default function Table() {
         </tr>
       </thead>
       <tbody>
-        {selected.map((val,i) => {
+        {allData.map((val,i) => {
         return <tr key={i}>
           <td>{val.estDepartureAirport}</td>
           <td>{convertTime(val.lastSeen )}</td>
