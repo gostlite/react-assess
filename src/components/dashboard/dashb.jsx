@@ -10,7 +10,7 @@ export default function Dashboard() {
   </div>
   <div className="main-content">
     <h2>Overview</h2>
-            <p>Welcome to your dashboard! Here you can view flights.</p>
+
             <Table />
         </div>
     </div>

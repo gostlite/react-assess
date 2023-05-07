@@ -26,16 +26,41 @@ export default function Table() {
   
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Airline</th>
+    // <div className="table-wrapper">
+    // <table className="f1-table">
+    //   <thead>
+    //     <tr>
+    //       <th>Airline</th>
+    //       <th>Time</th>
+    //       <th>Departure</th>
+    //       <th>Arrival</th>
+    //     </tr>
+    //   </thead>
+      // <tbody>
+      //   {allData.map((val,i) => {
+      //   return <tr key={i}>
+      //     <td>{val.estDepartureAirport}</td>
+      //     <td>{convertTime(val.lastSeen )}</td>
+      //     <td>{val.estDepartureAirportVertDistance}</td>
+      //     <td>{val.estArrivalAirportVertDistance}</td>
+      //     </tr>
+      // })}  
+         
+      // </tbody>
+    //   </table>
+    //   </div>
+
+<div className="table-wrapper">
+    <table className="fl-table">
+        <thead>
+       <tr>
+            <th>Airline</th>
           <th>Time</th>
           <th>Departure</th>
-          <th>Arrival</th>
+         <th>Arrival</th>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+         <tbody>
         {allData.map((val,i) => {
         return <tr key={i}>
           <td>{val.estDepartureAirport}</td>
@@ -47,5 +72,6 @@ export default function Table() {
          
       </tbody>
     </table>
+ </div>
   );
 }
